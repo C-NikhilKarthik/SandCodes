@@ -1,0 +1,44 @@
+/* src/components/TopPerformers.css */
+.top-performers {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.performer-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+}
+
+.performer-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.performer-card h3 {
+    margin: 10px 0;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.stat, .rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat span:first-child, .rank span:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
+}

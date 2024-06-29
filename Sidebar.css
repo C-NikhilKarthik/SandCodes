@@ -1,0 +1,29 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    width: 250px;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+    cursor: pointer;
+}
