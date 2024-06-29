@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 export default function Navbar() {
-  const staggerChildren = 0.2;
+  const staggerChildren = 0.15;
 
   return (
     <motion.nav className="w-full fixed z-50 backdrop-blur-sm top-0 flex justify-between left-0 font-clash p-4 tracking-wider leading-[1.1]">
@@ -14,7 +14,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: staggerChildren * 0 }}
       >
-        SpaceTec
+        <Link href="/">SpaceTec</Link>
       </motion.span>
 
       <motion.div

@@ -6,8 +6,11 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SpaceTec",
-  description: "Rescue Hackunia",
+  title: {
+    template: "SpaceTec | %s",
+    default: "SpaceTec",
+  },
+  description: "Rescue Hackunia Home page",
 };
 
 export default function RootLayout({
