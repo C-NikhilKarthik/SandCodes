@@ -41,17 +41,17 @@ const markers: Marker[] = [
 ];
 
 const highlightedCountries: { [key: string]: string } = {
-  "356": "#80ed99", // India
-  "840": "#80ed99", // United States of America
-  "032": "#80ed99", // Argentina
-  "124": "#ef233c", // Canada
-  "360": "#80ed99", // Indonesia
-  "242": "#ef233c", // Fiji
-  "834": "#ef233c", // Tanzania
-  "732": "#ef233c", // W. Sahara
-  "398": "#80ed99", // Kazakhstan
-  "860": "#ef233c", // Uzbekistan
-  "598": "#ef233c", // Papua New Guinea
+  "356": "#57cc99", // India
+  "840": "#57cc99", // United States of America
+  "032": "#57cc99", // Argentina
+  "124": "#dd2d4aa0", // Canada
+  "360": "#57cc99", // Indonesia
+  "242": "#dd2d4aa0", // Fiji
+  "834": "#dd2d4aa0", // Tanzania
+  "732": "#dd2d4aa0", // W. Sahara
+  "398": "#57cc99", // Kazakhstan
+  "860": "#dd2d4aa0", // Uzbekistan
+  "598": "#dd2d4aa0", // Papua New Guinea
 };
 
 export default function Map() {
@@ -70,7 +70,7 @@ export default function Map() {
             {({ geographies }) =>
               geographies.map((geo) => {
                 const countryId = geo.id;
-                const fill = highlightedCountries[countryId] || "#80ffdb";
+                const fill = highlightedCountries[countryId] || "#80ffdba0";
 
                 return (
                   <Geography
