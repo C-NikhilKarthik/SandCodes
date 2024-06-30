@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   ComposableMap,
   Geographies,
@@ -39,57 +40,81 @@ const markers: Marker[] = [
   },
 ];
 
+const highlightedCountries: { [key: string]: string } = {
+  "356": "#80ed99", // India
+  "840": "#80ed99", // United States of America
+  "032": "#80ed99", // Argentina
+  "124": "#ef233c", // Canada
+  "360": "#80ed99", // Indonesia
+  "242": "#ef233c", // Fiji
+  "834": "#ef233c", // Tanzania
+  "732": "#ef233c", // W. Sahara
+  "398": "#80ed99", // Kazakhstan
+  "860": "#ef233c", // Uzbekistan
+  "598": "#ef233c", // Papua New Guinea
+};
+
 export default function Map() {
   return (
     <div className="w-full h-full">
-      <div className="w-full h-full">
-        <ComposableMap className="w-full h-full" data-tip="">
-          <ZoomableGroup zoom={1}>
-            <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => (
+      <ComposableMap
+        className="w-full h-full"
+        data-tip=""
+        projectionConfig={{
+          scale: 200,
+          center: [0, 20],
+        }}
+      >
+        <ZoomableGroup zoom={1}>
+          <Geographies geography={geoUrl}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const countryId = geo.id;
+                const fill = highlightedCountries[countryId] || "#80ffdb";
+
+                return (
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
                     style={{
                       default: {
-                        fill: "rgb(128, 255, 219)",
+                        fill,
                         stroke: "#000",
                         strokeWidth: 0.75,
                         outline: "none",
                       },
                       hover: {
-                        fill: "rgb(114, 239, 221)",
+                        fill: "#64dfdf",
                         stroke: "#000",
                         strokeWidth: 1,
                         outline: "none",
                       },
                       pressed: {
-                        fill: "rgb(86, 207, 225)",
+                        fill: "#E42",
                         stroke: "#000",
                         strokeWidth: 1,
                         outline: "none",
                       },
                     }}
                   />
-                ))
-              }
-            </Geographies>
-            {markers.map(({ name, coordinates, markerOffset }: Marker) => (
-              <Marker key={name} coordinates={coordinates}>
-                <circle r={10} fill="#F00" stroke="#fff" strokeWidth={2} />
-                <text
-                  textAnchor="middle"
-                  y={markerOffset}
-                  style={{ fontFamily: "system-ui", fill: "#dee2e6" }}
-                >
-                  {name}
-                </text>
-              </Marker>
-            ))}
-          </ZoomableGroup>
-        </ComposableMap>
-      </div>
+                );
+              })
+            }
+          </Geographies>
+          {markers.map(({ name, coordinates, markerOffset }: Marker) => (
+            <Marker key={name} coordinates={coordinates}>
+              <circle r={10} fill="#F00" stroke="#fff" strokeWidth={2} />
+              <text
+                textAnchor="middle"
+                y={markerOffset}
+                style={{ fontFamily: "system-ui", fill: "#dee2e6" }}
+              >
+                {name}
+              </text>
+            </Marker>
+          ))}
+        </ZoomableGroup>
+      </ComposableMap>
       <Tooltip />
     </div>
   );

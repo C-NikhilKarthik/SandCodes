@@ -5,6 +5,50 @@ import Link from "next/link";
 import Map from "@/components/Map";
 import Footer from "@/components/Footer";
 
+const headlines = [
+  "Global Crisis: Alien forces intensify attacks across major cities worldwide.",
+  "Hope Amidst Chaos: SpaceTec’s efforts save thousands from alien threat.",
+  // Add more headlines as needed
+];
+
+const recentAttacks = [
+  {
+    location: "Sao Paulo",
+    date: "June 29, 2024",
+    description: "Alien forces attacked the central business district.",
+    casualties: 50,
+    saved: 200,
+  },
+  {
+    location: "Melbourne",
+    date: "June 28, 2024",
+    description: "A surprise night raid in the northern suburbs.",
+    casualties: 30,
+    saved: 150,
+  },
+  {
+    location: "Dhaka",
+    date: "June 27, 2024",
+    description: "Heavy assault on government buildings.",
+    casualties: 70,
+    saved: 100,
+  },
+  {
+    location: "San Francisco",
+    date: "June 26, 2024",
+    description: "Coordinated alien strike on key infrastructure.",
+    casualties: 40,
+    saved: 180,
+  },
+  {
+    location: "Tokyo",
+    date: "June 25, 2024",
+    description: "High-intensity attack on residential areas.",
+    casualties: 60,
+    saved: 220,
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex flex-col w-full min-h-screen">
@@ -40,6 +84,58 @@ export default function Home() {
       </section>
 
       <Guide />
+
+      <section className="flex flex-col w-full items-center pt-20">
+        <div className="py-6 flex gap-4 w-full bg-[#020b15] overflow-clip">
+          <div className="flex gap-4 scrolling px-2">
+            {headlines.map((headline, index) => (
+              <div
+                key={index}
+                className="w-fit whitespace-nowrap m-2 text-main-light p-2 rounded-lg shadow"
+              >
+                {headline}
+              </div>
+            ))}
+            {/* Duplicate headlines for infinite scrolling effect */}
+            {headlines.map((headline, index) => (
+              <div
+                key={index + headlines.length}
+                className="w-fit whitespace-nowrap m-2 text-main-light p-2 rounded-lg shadow"
+              >
+                {headline}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-3xl w-full pt-10 flex flex-col gap-2">
+          <h1 className="w-full max-w-3xl text-2xl font-semibold text-main-light">
+            Updates
+          </h1>
+          {recentAttacks?.map((attack, index) => (
+            <div
+              key={index}
+              className="w-full mx-auto bg-[#020b15] text-main-text rounded-xl overflow-hidden shadow-md mb-4"
+            >
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{attack.location}</div>
+                <p className="text-gray-500 text-base">{attack.date}</p>
+                <p className="text-gray-500 text-base mt-2">
+                  {attack.description}
+                </p>
+              </div>
+              <div className="px-6 py-4">
+                <span className="inline-block bg-red-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                  Casualties: {attack.casualties}
+                </span>
+                <span className="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                  Saved: {attack.saved}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="flex flex-col pt-20 px-4 md:px-8 lg:px-10 xl:px-20">
         <h1 className="text-main-text text-[clamp(24px,4dvw,30px)]">

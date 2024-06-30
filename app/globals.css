@@ -51,3 +51,17 @@
   border-bottom: 2px solid #80ffdb;
   border-left: 2px solid #80ffdb;
 }
+
+.scrolling {
+  animation: scroll-left 30s linear infinite; /* Animation for infinite scrolling */
+  width: 100%; /* Full width of container */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  100% {
+    transform: translateX(-50%); /* End position (fully scrolled left) */
+  }
+}
