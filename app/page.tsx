@@ -2,6 +2,8 @@ import { PiWarningCircleDuotone } from "react-icons/pi";
 import React from "react";
 import Guide from "@/components/Guide";
 import Link from "next/link";
+import Map from "@/components/Map";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -38,6 +40,17 @@ export default function Home() {
       </section>
 
       <Guide />
+
+      <section className="flex flex-col pt-20 px-4 md:px-8 lg:px-10 xl:px-20">
+        <h1 className="text-main-text text-[clamp(24px,4dvw,30px)]">
+          World Map
+        </h1>
+        <div className="border rounded border-main-light w-full h-[100dvh] my-10">
+          <Map />
+        </div>
+      </section>
+
+      <Footer />
     </main>
   );
 }

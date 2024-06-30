@@ -23,13 +23,13 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: staggerChildren * 1 }}
       >
-        <Link href={"#about"} className="">
+        <Link href={"/#about"} className="">
           About
         </Link>
-        <Link href={"#updates"} className="">
+        <Link href={"/#updates"} className="">
           Updates
         </Link>
-        <Link href={"#guide"} className="">
+        <Link href={"/#guide"} className="">
           Guide
         </Link>
       </motion.div>
